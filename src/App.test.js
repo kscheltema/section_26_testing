@@ -12,3 +12,7 @@ test("renders learn react link", () => {
 // i - case insensitive
 // how to run the test
 // npm test
+
+// ctr c stops the test in the background
+// npm test
+//is required afterwards

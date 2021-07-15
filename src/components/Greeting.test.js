@@ -35,7 +35,7 @@ describe("Greeting component", () => {
     const errorElement = screen.getByText(noActionErrorElement, {
       exact: false,
     });
-    expect(errorElement).not.toBeInTheDocument();
+    expect(errorElement).toBeNull();
   });
 });
 

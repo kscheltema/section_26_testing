@@ -24,6 +24,19 @@ describe("Greeting component", () => {
     const outputElement = screen.getByText("Changed!", { exact: false });
     expect(outputElement).toBeInTheDocument();
   });
+  test("no action error check", () => {
+    //arrange
+    render(<Greeting />);
+    //act - none
+
+    //assert
+    const noActionErrorElement = "It's Good to see!";
+    // const actionErrorElement = "Changed!";
+    const errorElement = screen.getByText(noActionErrorElement, {
+      exact: false,
+    });
+    expect(errorElement).not.toBeInTheDocument();
+  });
 });
 
 //testing suites

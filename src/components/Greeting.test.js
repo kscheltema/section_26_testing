@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import Greeting from "./Greeting";
 
 describe("Greeting component", () => {
@@ -13,22 +14,15 @@ describe("Greeting component", () => {
     const helloWorld = screen.getByText("Hello World", { exact: false }); //exact false = check within /default harsher check
     expect(helloWorld).toBeInTheDocument();
   });
-  test("button clicked test", () => {
-    const buttonCheckClicked = screen.getByText("Changed!", {
-      exact: false,
-    });
-    expect(buttonCheckClicked).toBeInTheDocument();
-
-    const buttonCheckNotClicked = screen.getByText("It's Good to see!", {
-      exact: false,
-    });
-    expect(buttonCheckNotClicked).toBeInTheDocument();
-  });
-  test("button not clicked test", () => {
-    const buttonCheckNotClicked = screen.getByText("It's Good to see!", {
-      exact: false,
-    });
-    expect(buttonCheckNotClicked).toBeInTheDocument();
+  test("button clicked test, render", () => {
+    //arrange
+    render(<Greeting />);
+    //act
+    const buttonTest = screen.getByRole("button");
+    userEvent.click(buttonTest);
+    //assert
+    const outputElement = screen.getByText("Changed!", { exact: false });
+    expect(outputElement).toBeInTheDocument();
   });
 });
 

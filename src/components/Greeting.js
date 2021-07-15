@@ -19,3 +19,6 @@ const Greeting = () => {
 };
 
 export default Greeting;
+
+//this setup if perfectly fine
+//if Output becomes more complex - separate tests is recomended
